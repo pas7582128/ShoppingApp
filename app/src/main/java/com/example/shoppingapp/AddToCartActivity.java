@@ -31,7 +31,12 @@ public class AddToCartActivity extends AppCompatActivity {
     ArrayList <Integer> hmap53=new ArrayList<>();
 
     HashMap <HashMap <String,Integer>,Integer> m;
-    HashMap <String,Integer> tmp=new HashMap<>();
+    HashMap <String,item> tmp=new HashMap<>();
+    HashMap <String,item> tmp1=new HashMap<>();
+    HashMap <String,item> tmp2=new HashMap<>();
+    HashMap <String,item> tmp3=new HashMap<>();
+    HashMap <String,item> tmp4=new HashMap<>();
+    
 
 
 
@@ -83,6 +88,64 @@ public class AddToCartActivity extends AppCompatActivity {
         int size4=hmap4.size();
         int size5=hmap5.size();
 
+
+        for(int i=0;i<size1;i++){
+            String name = hmap1.get(i);
+            int value = hmap13.get(i);
+            int c = hmap12.get(i);
+            if(tmp.containsKey(name)){
+                tmp.put(name,new item(name,tmp.get(name).count+c,value));
+            }else{
+                tmp.put(name,new item(name,c,value));
+            }
+        }
+
+
+
+
+        for(int i=0;i<size2;i++){
+            String name = hmap2.get(i);
+            int value = hmap23.get(i);
+            int c = hmap22.get(i);
+            if(tmp1.containsKey(name)){
+                tmp1.put(name,new item(name,tmp1.get(name).count+c,value));
+            }else{
+                tmp1.put(name,new item(name,c,value));
+            }
+        }
+
+        for(int i=0;i<size3;i++){
+            String name = hmap3.get(i);
+            int value = hmap33.get(i);
+            int c = hmap32.get(i);
+            if(tmp2.containsKey(name)){
+                tmp2.put(name,new item(name,tmp2.get(name).count+c,value));
+            }else{
+                tmp2.put(name,new item(name,c,value));
+            }
+        }
+
+        for(int i=0;i<size4;i++){
+            String name = hmap4.get(i);
+            int value = hmap43.get(i);
+            int c = hmap42.get(i);
+            if(tmp3.containsKey(name)){
+                tmp3.put(name,new item(name,tmp3.get(name).count+c,value));
+            }else{
+                tmp3.put(name,new item(name,c,value));
+            }
+        }
+
+        for(int i=0;i<size5;i++){
+            String name = hmap5.get(i);
+            int value = hmap53.get(i);
+            int c = hmap52.get(i);
+            if(tmp4.containsKey(name)){
+                tmp4.put(name,new item(name,tmp4.get(name).count+c,value));
+            }else{
+                tmp4.put(name,new item(name,c,value));
+            }
+        }
 //
 //        for(int i=0;i<size1;i++){
 //            if(tmp!=null) {
@@ -106,50 +169,104 @@ public class AddToCartActivity extends AppCompatActivity {
 //        }
 
 
-        for(int i=0;i<size1;i++){
+
+        for(Map.Entry<String,item>  k : tmp.entrySet()){
+            String name= k.getKey();
+            int c = k.getValue().count;
+            int v = k.getValue().value;
             TextView tv=new TextView(this);
             tv.setLayoutParams(lparams);
-            tv.setText(hmap1.get(i) +" X " +hmap12.get(i) +" == "+hmap12.get(i)*hmap13.get(i));
-            total+=hmap12.get(i)*hmap13.get(i);
+            tv.setText(name +" X " +c +" == "+(c*v));
+            total+=c*v;
             tv.setTextSize(20);
             this.l1.addView(tv);
         }
 
-        for(int i=0;i<size2;i++){
+
+
+        for(Map.Entry<String,item>  k : tmp1.entrySet()){
+            String name= k.getKey();
+            int c = k.getValue().count;
+            int v = k.getValue().value;
             TextView tv=new TextView(this);
             tv.setLayoutParams(lparams);
-            tv.setText(hmap2.get(i) +" X " +hmap22.get(i) +" == "+hmap22.get(i)*hmap23.get(i));
-            total+=hmap22.get(i)*hmap23.get(i);
+            tv.setText(name +" X " +c +" == "+(c*v));
+            total+=c*v;
             tv.setTextSize(20);
             this.l1.addView(tv);
         }
 
-        for(int i=0;i<size3;i++){
+        for(Map.Entry<String,item>  k : tmp2.entrySet()){
+            String name= k.getKey();
+            int c = k.getValue().count;
+            int v = k.getValue().value;
             TextView tv=new TextView(this);
             tv.setLayoutParams(lparams);
-            tv.setText(hmap3.get(i) +" X " +hmap32.get(i) +" == "+hmap32.get(i)*hmap33.get(i));
-            total+=hmap32.get(i)*hmap33.get(i);
-            this.l1.addView(tv);
+            tv.setText(name +" X " +c +" == "+(c*v));
+            total+=c*v;
             tv.setTextSize(20);
+            this.l1.addView(tv);
         }
 
-        for(int i=0;i<size4;i++){
+        for(Map.Entry<String,item>  k : tmp3.entrySet()){
+            String name= k.getKey();
+            int c = k.getValue().count;
+            int v = k.getValue().value;
             TextView tv=new TextView(this);
             tv.setLayoutParams(lparams);
-            tv.setText(hmap4.get(i) +" X " +hmap42.get(i) +" == "+hmap42.get(i)*hmap43.get(i));
-            total+=hmap42.get(i)*hmap43.get(i);
-            this.l1.addView(tv);
+            tv.setText(name +" X " +c +" == "+(c*v));
+            total+=c*v;
             tv.setTextSize(20);
+            this.l1.addView(tv);
         }
 
-        for(int i=0;i<size5;i++){
+        for(Map.Entry<String,item>  k : tmp4.entrySet()){
+            String name= k.getKey();
+            int c = k.getValue().count;
+            int v = k.getValue().value;
             TextView tv=new TextView(this);
             tv.setLayoutParams(lparams);
-            tv.setText(hmap5.get(i) +" X " +hmap52.get(i) +" == "+hmap52.get(i)*hmap53.get(i));
-            total+=hmap52.get(i)*hmap53.get(i);
-            this.l1.addView(tv);
+            tv.setText(name +" X " +c +" == "+(c*v));
+            total+=c*v;
             tv.setTextSize(20);
+            this.l1.addView(tv);
         }
+//
+//        for(int i=0;i<size2;i++){
+//            TextView tv=new TextView(this);
+//            tv.setLayoutParams(lparams);
+//            tv.setText(hmap2.get(i) +" X " +hmap22.get(i) +" == "+hmap22.get(i)*hmap23.get(i));
+//            total+=hmap22.get(i)*hmap23.get(i);
+//            tv.setTextSize(20);
+//            this.l1.addView(tv);
+//        }
+//
+//        for(int i=0;i<size3;i++){
+//            TextView tv=new TextView(this);
+//            tv.setLayoutParams(lparams);
+//            tv.setText(hmap3.get(i) +" X " +hmap32.get(i) +" == "+hmap32.get(i)*hmap33.get(i));
+//            total+=hmap32.get(i)*hmap33.get(i);
+//            this.l1.addView(tv);
+//            tv.setTextSize(20);
+//        }
+//
+//        for(int i=0;i<size4;i++){
+//            TextView tv=new TextView(this);
+//            tv.setLayoutParams(lparams);
+//            tv.setText(hmap4.get(i) +" X " +hmap42.get(i) +" == "+hmap42.get(i)*hmap43.get(i));
+//            total+=hmap42.get(i)*hmap43.get(i);
+//            this.l1.addView(tv);
+//            tv.setTextSize(20);
+//        }
+//
+//        for(int i=0;i<size5;i++){
+//            TextView tv=new TextView(this);
+//            tv.setLayoutParams(lparams);
+//            tv.setText(hmap5.get(i) +" X " +hmap52.get(i) +" == "+hmap52.get(i)*hmap53.get(i));
+//            total+=hmap52.get(i)*hmap53.get(i);
+//            this.l1.addView(tv);
+//            tv.setTextSize(20);
+//        }
 
         TextView tv=new TextView(this);
         tv.setLayoutParams(lparams);
@@ -168,6 +285,19 @@ public class AddToCartActivity extends AppCompatActivity {
 //            //System.out.print(number);
 //            Log.d("akash",number+"");
 //        }
+
+    }
+
+    class  item{
+
+        String mString;
+        int count;
+        int value;
+        public item(String s,int c,int v){
+            this.mString = s;
+            this.count = c;
+            this.value = v;
+        }
 
     }
 }
