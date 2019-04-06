@@ -1,6 +1,8 @@
 package com.example.shoppingapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +13,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.WriterException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import androidmads.library.qrgenearator.QRGContents;
+import androidmads.library.qrgenearator.QRGEncoder;
 
 public class ItemActivity extends AppCompatActivity {
 
@@ -27,6 +34,15 @@ public class ItemActivity extends AppCompatActivity {
     private Button button_inc_4,button_dec_4,button_add_to_cart_4;
     private Button button_inc_5,button_dec_5,button_add_to_cart_5;
     private Button view_cart;
+    
+    private ImageView image_view_qr1;
+    private ImageView image_view_qr2;
+    private ImageView image_view_qr3;
+    private ImageView image_view_qr4;
+    private ImageView image_view_qr5;
+    
+    
+    
     private TextView text_view_number_of_items_1,text_view_number_of_items_2,text_view_number_of_items_3,text_view_number_of_items_4,text_view_number_of_items_5;
 //    HashMap <String,Integer> hmap1=new HashMap<String,Integer>();
 //    HashMap <String,Integer> hmap2=new HashMap<String,Integer>();
@@ -51,6 +67,8 @@ public class ItemActivity extends AppCompatActivity {
     public static ArrayList <Integer> hmap33=new ArrayList<>();
     public static ArrayList <Integer> hmap43=new ArrayList<>();
     public static ArrayList <Integer> hmap53=new ArrayList<>();
+
+
 
 
     @Override
@@ -86,6 +104,12 @@ public class ItemActivity extends AppCompatActivity {
 
         view_cart=(Button)findViewById(R.id.view_cart);
 
+        image_view_qr1=(ImageView)findViewById(R.id.qr_image1);
+        image_view_qr2=(ImageView)findViewById(R.id.qr_image2);
+        image_view_qr3=(ImageView)findViewById(R.id.qr_image3);
+        image_view_qr4=(ImageView)findViewById(R.id.qr_image4);
+        image_view_qr5=(ImageView)findViewById(R.id.qr_image5);
+
         if(savedInstanceState==null){
             Bundle extras=getIntent().getExtras();
             item_from_previous_page=extras.getString("itemValue");
@@ -107,6 +131,9 @@ public class ItemActivity extends AppCompatActivity {
             itemPrice4.setText("1400");
             itemName5.setText("Screenguard");
             itemPrice5.setText("200");
+            
+
+            
 
         }
         else if(item_from_previous_page.equals("Laptops")){
@@ -179,6 +206,60 @@ public class ItemActivity extends AppCompatActivity {
         }
 
 
+        QRGEncoder qrgEncoder = new QRGEncoder(itemName1.getText().toString()+"---"+itemPrice1.getText().toString(), null, QRGContents.Type.TEXT, (int) ( 500));
+        Log.d("akash",itemName1.getText().toString()+" "+itemPrice1.getText().toString());
+        try {
+            // Getting QR-Code as Bitmap
+            Bitmap bitmap = qrgEncoder.encodeAsBitmap();
+            // Setting Bitmap to ImageView
+            image_view_qr1.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            Log.v("QRERROR", e.toString());
+        }
+
+        qrgEncoder = new QRGEncoder(itemName2.getText().toString()+"---"+itemPrice2.getText().toString(), null, QRGContents.Type.TEXT, (int) ( 500));
+        Log.d("akash",itemName2.getText().toString()+" "+itemPrice2.getText().toString());
+        try {
+            // Getting QR-Code as Bitmap
+            Bitmap bitmap = qrgEncoder.encodeAsBitmap();
+            // Setting Bitmap to ImageView
+            image_view_qr2.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            Log.v("QRERROR", e.toString());
+        }
+
+        qrgEncoder = new QRGEncoder(itemName3.getText().toString()+"---"+itemPrice3.getText().toString(), null, QRGContents.Type.TEXT, (int) ( 500));
+        Log.d("akash",itemName3.getText().toString()+" "+itemPrice3.getText().toString());
+        try {
+            // Getting QR-Code as Bitmap
+            Bitmap bitmap = qrgEncoder.encodeAsBitmap();
+            // Setting Bitmap to ImageView
+            image_view_qr3.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            Log.v("QRERROR", e.toString());
+        }
+
+        qrgEncoder = new QRGEncoder(itemName4.getText().toString()+"---"+itemPrice4.getText().toString(), null, QRGContents.Type.TEXT, (int) ( 500));
+        Log.d("akash",itemName4.getText().toString()+" "+itemPrice4.getText().toString());
+        try {
+            // Getting QR-Code as Bitmap
+            Bitmap bitmap = qrgEncoder.encodeAsBitmap();
+            // Setting Bitmap to ImageView
+            image_view_qr4.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            Log.v("QRERROR", e.toString());
+        }
+
+        qrgEncoder = new QRGEncoder(itemName5.getText().toString()+"---"+itemPrice5.getText().toString(), null, QRGContents.Type.TEXT, (int) ( 500));
+        Log.d("akash",itemName5.getText().toString()+" "+itemPrice5.getText().toString());
+        try {
+            // Getting QR-Code as Bitmap
+            Bitmap bitmap = qrgEncoder.encodeAsBitmap();
+            // Setting Bitmap to ImageView
+            image_view_qr5.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            Log.v("QRERROR", e.toString());
+        }
 //        LinearLayout.LayoutParams imParams =
 //                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 //        ImageView imSex = new ImageView(this);

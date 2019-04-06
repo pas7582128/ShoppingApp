@@ -73,6 +73,13 @@
                 android:text="+"
                 style="@style/Widget.AppCompat.Button.Colored"/>
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/qr_image1"
+            />
+
         <Button
             android:layout_width="280dp"
             android:layout_height="wrap_content"
@@ -84,6 +91,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             style="@style/Widget.AppCompat.Button.Colored"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -146,6 +154,11 @@
                 android:text="+"
                 style="@style/Widget.AppCompat.Button.Colored"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/qr_image2"
+            />
         <Button
             android:layout_width="280dp"
             android:layout_height="wrap_content"
@@ -220,6 +233,11 @@
                 android:text="+"
                 style="@style/Widget.AppCompat.Button.Colored"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/qr_image3"
+            />
         <Button
             android:layout_width="280dp"
             android:layout_height="wrap_content"
@@ -295,6 +313,11 @@
                 android:text="+"
                 style="@style/Widget.AppCompat.Button.Colored"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/qr_image4"
+            />
         <Button
             android:layout_width="280dp"
             android:layout_height="wrap_content"
@@ -370,6 +393,11 @@
                 android:text="+"
                 style="@style/Widget.AppCompat.Button.Colored"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/qr_image5"
+            />
         <Button
             android:layout_width="280dp"
             android:layout_height="wrap_content"
