@@ -1,6 +1,7 @@
 package com.example.shoppingapp;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mButton;
     private Spinner mSpinner;
     private String item;
-
+    static int flag=0;
 
 
 
@@ -32,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_spinner_dropdown_item,itemNames);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(arrayAdapter);
+
+        if(savedInstanceState==null){
+            Intent intent=getIntent();
+            if(intent.hasExtra("AddToCart")){
+                flag=0;
+            }
+        }
 
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -49,10 +57,17 @@ public class MainActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                flag=flag+1;
                 Intent intent=new Intent(MainActivity.this,ItemActivity.class);
                 intent.putExtra("itemValue",item);
+                intent.putExtra("flag",flag);
                 startActivity(intent);
             }
         });
     }
+
+
 }
+
+

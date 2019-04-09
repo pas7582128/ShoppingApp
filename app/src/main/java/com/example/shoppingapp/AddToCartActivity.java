@@ -1,8 +1,11 @@
 package com.example.shoppingapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,7 +40,7 @@ public class AddToCartActivity extends AppCompatActivity {
     HashMap <String,item> tmp3=new HashMap<>();
     HashMap <String,item> tmp4=new HashMap<>();
     
-
+    Button ButtonClearCart;
 
 
     long total=0;
@@ -70,7 +73,9 @@ public class AddToCartActivity extends AppCompatActivity {
         hmap52=extras.getIntegerArrayList("hmap52");
         hmap53=extras.getIntegerArrayList("hmap53");
 
-        l1=(LinearLayout)findViewById(R.id.add_to_cart_xml);
+        l1=(LinearLayout)findViewById(R.id.add_to_cart_xml_2);
+
+        ButtonClearCart=(Button)findViewById(R.id.clear_cart);
 
         LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -280,11 +285,22 @@ public class AddToCartActivity extends AppCompatActivity {
         this.l1.addView(tv);
         tv.setTextSize(20);
 
+        ButtonClearCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(AddToCartActivity.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.putExtra("AddToCart",0);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 //        for (int number : hmap12) {
 //            //System.out.print(number);
 //            Log.d("akash",number+"");
 //        }
+
 
     }
 

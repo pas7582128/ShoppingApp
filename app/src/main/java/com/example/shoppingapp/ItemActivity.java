@@ -68,6 +68,7 @@ public class ItemActivity extends AppCompatActivity {
     public static ArrayList <Integer> hmap43=new ArrayList<>();
     public static ArrayList <Integer> hmap53=new ArrayList<>();
 
+    int flag;
 
 
 
@@ -113,8 +114,34 @@ public class ItemActivity extends AppCompatActivity {
         if(savedInstanceState==null){
             Bundle extras=getIntent().getExtras();
             item_from_previous_page=extras.getString("itemValue");
-            Log.d("akash",item_from_previous_page);
+            flag=extras.getInt("flag");
+            if(flag==1){
+                m1=0;m2=0;m3=0;m4=0;m5=0;
+                hmap1.clear();
+                hmap12.clear();
+                hmap13.clear();
+
+                hmap2.clear();
+                hmap22.clear();
+                hmap23.clear();
+
+                hmap3.clear();
+                hmap32.clear();
+                hmap33.clear();
+
+                hmap4.clear();
+                hmap42.clear();
+                hmap43.clear();
+
+                hmap5.clear();
+                hmap52.clear();
+                hmap53.clear();
+            }
+            Log.d("akash_flag","flag"+flag);
         }
+
+
+
         if(item_from_previous_page.equals("Mobile accessories")){
             img1.setImageResource(R.drawable.charger);
             img2.setImageResource(R.drawable.datacable);
